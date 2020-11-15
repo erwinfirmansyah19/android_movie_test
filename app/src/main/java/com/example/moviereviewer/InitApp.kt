@@ -5,8 +5,6 @@ import com.example.moviereviewer.model.Migration
 import io.realm.Realm
 import io.realm.RealmConfiguration
 
-
-
 class InitApp: Application(){
     override fun onCreate() {
         super.onCreate()
