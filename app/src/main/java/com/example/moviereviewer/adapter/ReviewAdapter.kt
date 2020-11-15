@@ -30,8 +30,8 @@ class ReviewAdapter (val items: ArrayList<DtbReview>, val context: Context): Rec
     }
 
     override fun onBindViewHolder(p0: ReviewViewHolder, p1: Int) {
-        p0?.authors?.setText(items.get(p1).Author)
-        p0?.comment?.setText(items.get(p1).UserReview)
+        p0?.authors?.setText("Author : " + items.get(p1).Author)
+        p0?.comment?.setText("\"" + items.get(p1).UserReview + "\"")
 
     }
 

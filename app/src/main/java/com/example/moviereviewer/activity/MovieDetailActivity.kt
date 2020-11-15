@@ -61,7 +61,18 @@ class MovieDetailActivity : AppCompatActivity() {
 
                 Picasso.get().load(Attributes.BACKDROP_URL + movieData?.BackDropPath).into(backdropMovie)
             }
+            reviewBtn.setOnClickListener {
+                val bundle = Bundle()
+                bundle.putString("movieID", movieID)
+                var intent : Intent = Intent(applicationContext, MovieReviewActivity::class.java)
+                intent.putExtras(bundle)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                applicationContext.startActivity(intent)
+            }
         }
+
+
     }
 
     override fun onBackPressed() {
