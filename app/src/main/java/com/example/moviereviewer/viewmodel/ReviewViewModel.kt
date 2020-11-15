@@ -35,13 +35,11 @@ class ReviewViewModel {
             override fun onResponse(call: Call<ReviewResponse>?, response: Response<ReviewResponse>?) {
                 if(response != null){
                     if(response.body() != null){
-                        reviewList = response.body().getResults()
+                        response.body().getResults()
                             var movieID = response.body().MovieID
-                        println("body not null")
-                            if(reviewList!=null && movieID!=null){
-                                println("save " + movieID)
-                                movieAction.saveReviews(reviewList!!, movieID!!)
-                                realm.close();
+                            println("body not null")
+                            if(response.body().getResults()!=null && movieID!=null){
+                                reviewList!!.addAll(response.body().getResults()!!)
                             }
                     }else{
                         println("body Null")

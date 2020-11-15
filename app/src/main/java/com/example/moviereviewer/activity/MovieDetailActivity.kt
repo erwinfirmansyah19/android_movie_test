@@ -60,12 +60,6 @@ class MovieDetailActivity : AppCompatActivity() {
                 language.text = "Language :  "+ movieData?.OriginalLanguage
 
                 Picasso.get().load(Attributes.BACKDROP_URL + movieData?.BackDropPath).into(backdropMovie)
-
-                reviewViewModel.getReview(movieID)!!
-                Timer("Sync", false).schedule(3000){
-                    setAdapter(movieID)
-                }
-
             }
         }
     }
@@ -79,14 +73,4 @@ class MovieDetailActivity : AppCompatActivity() {
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         applicationContext.startActivity(intent)
     }
-
-    fun setAdapter(movieID: String){
-        var reviewList = reviewViewModel.getReviewByMovieID(movieID)
-        if(reviewList!=null){
-            println("totalreview "+ reviewList?.size)
-        }else{
-            println("masih proses ")
-        }
-
     }
-}
